@@ -22,9 +22,11 @@ let IdeaDisplay = (props) => {
     return (
       <>
         <div className = "description">We currently have <span id = "special">{props.items.length}</span> idea(s) for what to do today!</div>
-          <ul>
-              {props.items}
-          </ul>
+        <div id = "listContainer">
+            <ul>
+                {props.items}
+            </ul>
+          </div>
           <div id = "buttonContainer"><button onClick = {props.pickTwoActivities}>Pick two ideas randomly</button></div>
           <div id = "ourIdeas">
               Today's activities: {props.randomPicks[0]}, {props.randomPicks[1]}
@@ -35,9 +37,11 @@ let IdeaDisplay = (props) => {
     return (
       <>
         <div className = "description">We currently have <span id = "special">{props.items.length}</span> idea(s) for what to do today!</div>
-          <ul>
-              {props.items}
-          </ul>
+          <div id = "listContainer">
+            <ul>
+                {props.items}
+            </ul>
+          </div>
           <div id = "buttonContainer"><button onClick = {props.pickTwoActivities}>Pick two ideas randomly</button></div>
           <div id = "ourIdeas">
              Today's activities will go here!
@@ -111,9 +115,11 @@ class App extends React.Component {
         <div>
             <div className = "header"><span className = "headerItem">Add Activities</span><span className = "headerItem" onClick = {this.changeTabs}>Randomly Pick Activities</span></div>
             <div className = "description">Add new activities!</div> 
-            <ul>
-              {items}
-            </ul>
+            <div id = "listContainer">
+              <ul>
+                {items}
+              </ul>
+            </div>
             <form onSubmit = {this.handleSubmit}>
               <input value = {this.state.newInput} onChange={this.handleActivityChange} /> 
               <button type = "submit">Add</button>

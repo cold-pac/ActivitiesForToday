@@ -26,16 +26,26 @@ body {
 .num {
  color: rgb(204, 62, 62);
 }
+#listContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 ul {
-  background: grey;
   margin: 0;
   margin-bottom: 3vh;
+  width: 50%;
+
 }
 li {
+  background: grey;
   list-style-type: none;
   text-align: center;
   padding: 1vh;
   margin-left: -2.6vw;
+  margin-top: 0.3vh;
+  color: white;
 
 }
 li:hover {
