@@ -4,7 +4,7 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
   font-size: 1.3em;
 }
 body {
@@ -52,12 +52,16 @@ li:hover {
   background: green; 
   color: white;
 }
+.selectedLi {
+  background: yellow;
+  color: black;
+}
 button {
   cursor: pointer;
-  font-size: 1em;
+  font-size: 0.8em;
   background: rgb(46, 109, 93);
   color: white;
-  padding: 2%;
+  padding: 1%;
   margin-bottom: 2%; 
   border: none; 
 }

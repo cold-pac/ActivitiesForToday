@@ -76,9 +76,14 @@ class App extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault();
-    this.setState(function (state) {
-      return {ideas: [...state.ideas, state.newInput], newInput: ''}
-      });
+    if (this.state.newInput != '') {
+      this.setState(function (state) {
+        return {ideas: [...state.ideas, state.newInput], newInput: ''}
+        });
+    } else {
+      window.alert("You have to type an activity into the input bar before you add it!");
+    }
+    
   }
 
   handleActivityChange (event) {
@@ -96,18 +101,35 @@ class App extends React.Component {
   }
 
   pickTwoActivities () {
-    ideasCopy = this.state.ideas.slice(0); 
+    if (this.state.ideas.length > 2) {
 
-    console.log(ideasCopy); 
+      ideasCopy = this.state.ideas.slice(0); 
 
-    this.setState({randomPicks: [(ideasCopy.splice( Math.floor(Math.random() * this.state.ideas.length), 1) [0]), (ideasCopy.splice( Math.floor(Math.random() * (this.state.ideas.length - 1) ), 1) [0])]}); 
+      console.log(ideasCopy); 
 
-    console.log(this.state.randomPicks); 
+      this.setState({randomPicks: [(ideasCopy.splice( Math.floor(Math.random() * this.state.ideas.length), 1) [0]), (ideasCopy.splice( Math.floor(Math.random() * (this.state.ideas.length - 1) ), 1) [0])]}); 
 
+      console.log(this.state.randomPicks); 
+
+    } else {
+      window.alert("You need at least 3 ideas before you can pick 2 randomly!");
+    }
   }
 
   render () {
-    const items = this.state.ideas.map((elem, index) => <li key = {index}>{elem}</li>); 
+   // const items = this.state.ideas.map((elem, index) => <li key = {index}>{elem}</li>); 
+
+    let randomPicksCopy = this.state.randomPicks.slice(0); 
+    
+    const items = this.state.ideas.map(function (elem, index) {
+      
+      if (randomPicksCopy.indexOf(elem) != -1) {
+        return <li className = "selectedLi" key = {index}>{elem}</li>;
+      } else {
+        return <li key = {index}>{elem}</li>; 
+      }
+
+    });
 
     if (this.state.page1) {
       
