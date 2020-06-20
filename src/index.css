@@ -113,3 +113,17 @@ form input {
   justify-content: center;
   align-items: center;
 }
+@media (orientation: portrait) {
+  html, body {
+    font-size: 1.4em;
+  }
+  #root {
+    width: 80%;
+  }
+  form {
+    align-items: flex-start;
+  }
+  form input {
+    font-size: 1.2em;
+  }
+}
